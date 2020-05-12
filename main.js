@@ -7,9 +7,11 @@ logger.add(new logger.transports.Console, {
     colorize: true
 });
 logger.level = 'debug';
+
+let token = new Buffer(auth.token, 'base64');
 // Initialize Discord Bot
 var bot = new Discord.Client({
-   token: auth.token,
+   token: token.toString('ascii'),
    autorun: true
 });
 
